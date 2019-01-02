@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>navbar</title>
+<style>
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Open sans;
+}
+
+a {
+  color: inherit;
+  font-family: Open sans;
+  text-decoration: none;
+}
+
+
+/*======================================================
+                          Navbar
+  ======================================================*/
+#navbar {
+ background-color:#ffca28;
+  color: rgb(13, 26, 38);
+  position: fixed;
+  top: 0;
+  height: 40px;
+  width: 100vw;
+  z-index: 10;
+
+  
+}
+ .logo .navico{
+  width:140px;
+  margin-left:60px;
+  margin-right:30px;
+ }
+ .logo .navico2{
+ float:right;
+ margin-right:20px;
+ height:20px;
+ margin-top:12px;
+ }
+@media(min-width: 746px){
+.nav-wrapper{display:none;}
+}
+
+#navbar .menu-ul {
+  display: inline-block;
+  list-style: none;
+  text-align:center;
+  transition: transform 0.5s ease-out;
+  -webkit-transition: transform 0.5s ease-out;
+  width:100%;
+ 
+} 
+
+@media(max-width: 745px) {
+    #navbar .menu-ul {
+      display: none;
+    }
+  } @media(orientation: landscape) {
+      #navbar menu-ul {
+        display: inline-block;
+      }
+    }
+
+#navbar .menu-li {
+  display: inline-block;
+}
+
+#navbar .menu-li .menu-a {
+    font-weight: bold;
+    font-size: 12px;
+  color: rgb(13, 26, 38);
+  display: block;
+  height: 20px;
+  margin: 0 15px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  
+}
+
+#navbar .menu-li .menu-a:hover {
+  /* border-bottom: 1px solid rgb(28, 121, 184); */
+  color: rgb(28, 121, 184);
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+
+/* Animated Bottom Line */
+#navbar .menu-li .menu-a:before, #navbar .menu-li .menu-a:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -1px;
+  background: rgb(13, 26, 38);
+}
+
+#navbar .menu-li .menu-a:before {
+  left: 0;
+  transition: 0.5s;
+}
+
+#navbar .menu-li .menu-a:after {
+  background: rgb(13, 26, 38);
+  right: 0;
+  /* transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); */
+}
+
+#navbar .menu-li .menu-a:hover:before {
+  background: rgb(13, 26, 38);
+  width: 100%;
+  transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
+}
+
+#navbar .menu-li .menu-a:hover:after {
+  background: transparent;
+  width: 100%;
+  /* transition: 0s; */
+}
+
+
+
+/*======================================================
+                    Mobile Menu Menu Icon
+  ======================================================*/
+@media(max-width: 745px) {
+  .menuIcon {
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    left: 15px;
+    top: 10px;
+    height: 23px;
+    width: 27px;
+    z-index: 12;
+  }
+
+  /* Icon Bars */
+  .icon-bars {
+    background: rgb(13, 26, 38);
+    position: absolute;
+    left: 1px;
+    top: 45%;
+    height: 2px;
+    width: 20px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  } 
+
+  .icon-bars::before {
+    background: rgb(13, 26, 38);
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -8px;
+    height: 2px;
+    width: 20px;
+/*     -webkit-transition: top 0.2s ease 0.3s;
+    transition: top 0.2s ease 0.3s; */
+    -webkit-transition: 0.3s width 0.4s;
+    transition: 0.3s width 0.4s;
+  }
+
+  .icon-bars::after {
+    margin-top: 0px;
+    background: rgb(13, 26, 38);
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    height: 2px;
+    width: 20px;
+/*     -webkit-transition: top 0.2s ease 0.3s;
+    transition: top 0.2s ease 0.3s; */
+    -webkit-transition: 0.3s width 0.4s;
+    transition: 0.3s width 0.4s;
+  }
+
+  /* Bars Shadows */
+  .icon-bars.overlay {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 20px;
+    animation: middleBar 3s infinite 0.5s;
+    -webkit-animation: middleBar 3s infinite 0.5s;
+  } @keyframes middleBar {
+      0% {width: 0px}
+      50% {width: 20px}
+      100% {width: 0px}
+    } @-webkit-keyframes middleBar {
+        0% {width: 0px}
+        50% {width: 20px}
+        100% {width: 0px}
+      }
+
+  .icon-bars.overlay::before {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 10px;
+    animation: topBar 3s infinite 0.2s;
+    -webkit-animation: topBar 3s infinite 0s;
+  } @keyframes topBar {
+      0% {width: 0px}
+      50% {width: 10px}
+      100% {width: 0px}
+    } @-webkit-keyframes topBar {
+        0% {width: 0px}
+        50% {width: 10px}
+        100% {width: 0px}
+      }
+
+  .icon-bars.overlay::after {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 15px;
+    animation: bottomBar 3s infinite 1s;
+    -webkit-animation: bottomBar 3s infinite 1s;
+  } @keyframes bottomBar {
+      0% {width: 0px}
+      50% {width: 15px}
+      100% {width: 0px}
+    } @-webkit-keyframes bottomBar {
+        0% {width: 0px}
+        50% {width: 15px}
+        100% {width: 0px}
+      }
+
+
+  /* Toggle Menu Icon */
+  .menuIcon.toggle .icon-bars {
+    top: 5px;
+    transform: translate3d(0, 5px, 0) rotate(135deg);
+    transition-delay: 0.1s;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .menuIcon.toggle .icon-bars::before {
+    top: 0;
+    transition-delay: 0.1s;
+    opacity: 0;
+  }
+
+  .menuIcon.toggle .icon-bars::after {
+    top: 10px;
+    transform: translate3d(0, -10px, 0) rotate(-270deg);
+    transition-delay: 0.1s;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .menuIcon.toggle .icon-bars.overlay {
+    width: 20px;
+    opacity: 0;
+    -webkit-transition: all 0s ease 0s;
+    transition: all 0s ease 0s;
+  }
+}
+
+
+/*======================================================
+                   Responsive Mobile Menu 
+  ======================================================*/
+.overlay-menu {
+  background: lightblue;
+  color: rgb(13, 26, 38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 15px;
+  transform: translateX(-100%);
+  width: 100vw;
+  height: 100vh;
+  -webkit-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+}
+
+.overlay-menu ul, .overlay-menu li {
+  display: block;
+  position: relative;
+}
+
+.overlay-menu li a {
+  display: block;
+  font-size: 1.8em;
+  letter-spacing: 4px;
+/*   opacity: 0; */
+  padding: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+/*   -webkit-transition: 0.2s opacity 0.2s ease-out;
+  transition: 0.2s opacity 0.2s ease-out; */
+}
+
+.overlay-menu li a:hover,
+.overlay-menu li a:active {
+  color: rgb(28, 121, 184);
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+
+
+.dropdown-content1,.dropdown-content2,.dropdown-content3,.dropdown-content4,.dropdown-content5,.dropdown-content6,.dropdown-content7,.dropdown-content8,.dropdown-content9{
+	display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 70%;
+    left: 15%;
+	top:50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	height:250px;
+}
+.dropdown1:hover .dropdown-content1,.dropdown2:hover .dropdown-content2,.dropdown3:hover .dropdown-content3,.dropdown4:hover .dropdown-content4,.dropdown5:hover .dropdown-content5,.dropdown6:hover .dropdown-content6,.dropdown7:hover .dropdown-content7,.dropdown8:hover .dropdown-content8,.dropdown9:hover .dropdown-content9 {
+    display: grid;
+	grid-template-columns: repeat(1,2fr 1fr 1fr 1fr);
+}
+.dropdown1,.dropdown2,.dropdown3,.dropdown4,.dropdown5,.dropdown6,.dropdown7,.dropdown8,.dropdown9{
+	overflow: hidden;
+	padding:10px 0px;
+}
+.box1{
+	grid-column: 1 ;
+}
+.box1 img{
+	height:100%;
+}
+.box2,.box3,.box4,.box5{
+	padding:15px;
+}
+.box2 h3,.box3 h3,.box4 h3,.box5 h3{
+	margin-top:0px;
+}
+.drop{
+	padding-left:0px;
+}
+.drop li{
+	display:block;
+	margin-bottom:10px;
+	padding:20px;
+}
+</style>
+</head>
+<body>
+
+<div style="background:#000;height:60px;width:100%;"></div>
+<nav id="navbar" class="">
+ 
+<div class="nav-wrapper">
+    <!-- Navbar Logo -->
+    <div class="logo">
+      <!-- Logo Placeholder for Inlustration -->
+ <a href="#"> <img src="img/logo.png"class="navico"></a>
+ <a href="#"> <img src="img/search.png" class="navico2" style="float:none;"></a>
+ <a href="#"> <img src="img/contact.png" class="navico2"></a>
+ <a href="#"> <img src="img/hart.png" class="navico2"></a>
+ <a href="#"> <img src="img/cart.png"class="navico2"> </a>
+    </div>
+	</div>
+    <!-- Navbar Links -->
+    <ul id="menu" class="menu-ul">
+      <li class=" menu-li dropdown1"><a href="#home" class="menu-a">HANDLOOMS </a><div class="dropdown-content1">
+		<div class="box1"><img src="img/21.jpg"></div>
+		<div class="box2">
+		<h3>Category 1</h3>
+		<ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box3">
+		<h3>Category 2</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box4">
+		<h3>Category 3</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		</div></li>
+   <li class=" menu-li dropdown2"><a href="#services" class="menu-a">BRASS</a><div class="dropdown-content2">
+		<div class="box1"><img src="img/22.jpg"></div>
+		<div class="box2">
+		<h3>Category 1</h3>
+		<ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box3">
+		<h3>Category 2</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box4">
+		<h3>Category 3</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		</div></li>
+   <li class=" menu-li dropdown3"><a href="#about" class="menu-a">JUTE</a><div class="dropdown-content3">
+		<div class="box1"><img src="img/23.jpg"></div>
+		<div class="box2">
+		<h3>Category 1</h3>
+		<ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box3">
+		<h3>Category 2</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box4">
+		<h3>Category 3</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		</div></li>
+   <li class=" menu-li dropdown4"><a href="#contact" class="menu-a">CLAY</a><div class="dropdown-content4">
+		<div class="box1"><img src="img/24.jpg"></div>
+		<div class="box2">
+		<h3>Category 1</h3>
+		<ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box3">
+		<h3>Category 2</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box4">
+		<h3>Category 3</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		</div></li>
+   <li class=" menu-li dropdown5"><a href="#Wooden" class="menu-a">WOODEN</a><div class="dropdown-content5">
+		<div class="box1"><img src="img/21.jpg"></div>
+		<div class="box2">
+		<h3>Category 1</h3>
+		<ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box3">
+		<h3>Category 2</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box4">
+		<h3>Category 3</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		</div></li>
+   <li class=" menu-li dropdown6"><a href="#contact" class="menu-a">BAMBOO</a><div class="dropdown-content6">
+		<div class="box1"><img src="img/22.jpg"></div>
+		<div class="box2">
+		<h3>Category 1</h3>
+		<ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box3">
+		<h3>Category 2</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box4">
+		<h3>Category 3</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		</div></li>
+   <li class=" menu-li dropdown7"><a href="#contact" class="menu-a">SHELLS</a><div class="dropdown-content7">
+		<div class="box1"><img src="img/23.jpg"></div>
+		<div class="box2">
+		<h3>Category 1</h3>
+		<ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box3">
+		<h3>Category 2</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box4">
+		<h3>Category 3</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		</div></li>
+    <li class=" menu-li dropdown8"><a href="#contact" class="menu-a">MARBLE</a><div class="dropdown-content8">
+		<div class="box1"><img src="img/24.jpg"></div>
+		<div class="box2">
+		<h3>Category 1</h3>
+		<ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box3">
+		<h3>Category 2</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box4">
+		<h3>Category 3</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		</div></li>
+	<li class=" menu-li dropdown9"><a href="#contact" class="menu-a">MICS</a><div class="dropdown-content9">
+		<div class="box1"><img src="img/21.jpg"></div>
+		<div class="box2">
+		<h3>Category 1</h3>
+		<ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box3">
+		<h3>Category 2</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		<div class="box4">
+		<h3>Category 3</h3>
+          <ul class="drop">
+		<li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+		</div></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Menu Icon -->
+<div class="menuIcon">
+  <span class="icon icon-bars"></span>
+  <span class="icon icon-bars overlay"></span>
+</div>
+
+
+<div class="overlay-menu">
+  <ul id="menu">
+      <li><a href="#home">HANDLOOMS </a></li>
+   <li><a href="#services">BRASS</a></li>
+   <li><a href="#about">JUTE</a></li>
+   <li><a href="#contact">CLAY</a></li>
+   <li><a href="#Wooden">WOODEN</a></li>
+   <li><a href="#contact">BAMBOO</a></li>
+   <li><a href="#contact">SHELLS</a></li>
+    <li><a href="#contact">MARBLE</a></li>
+	<li><a href="#contact">MICS</a></li>
+    </ul>
+</div>
+
+</body>
+<script>
+  // Navigation
+        // Responsive Toggle Navigation =============================================
+        let menuIcon = document.querySelector('.menuIcon');
+        let nav = document.querySelector('.overlay-menu');
+
+        menuIcon.addEventListener('click', () => {
+            if (nav.style.transform != 'translateX(0%)') {
+                nav.style.transform = 'translateX(0%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            } else { 
+                nav.style.transform = 'translateX(-100%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            }
+        });
+
+
+        // Toggle Menu Icon ========================================
+        let toggleIcon = document.querySelector('.menuIcon');
+
+        toggleIcon.addEventListener('click', () => {
+            if (toggleIcon.className != 'menuIcon toggle') {
+                toggleIcon.className += ' toggle';
+            } else {
+                toggleIcon.className = 'menuIcon';
+            }
+        });
+		</script>
+
+</html>
